@@ -28,8 +28,6 @@ export default function HomeScreen() {
       isNegative = true;
     }
 
-    console.log("Time timeLeft in ms", timeLeft);
-
     // Reverse order for calculation
     let timeInYear = timeLeft / 1000 / 60 / 60 / 24 / 30.4167 / 12;
     let numberOfWholeYear = 0;
@@ -65,13 +63,6 @@ export default function HomeScreen() {
       timeLeft = (timeInDay - numberOfWholeDay) * 1000 * 60 * 60 * 24;
     }
 
-    console.log(
-      numberOfWholeYear,
-      numberOfWholeMonth,
-      numberOfWholeWeek,
-      numberOfWholeDay
-    );
-
     return (
       <Text className="text-white">
         {isNegative ? "Positive" : "Negative"} {numberOfWholeYear} Years,{" "}
@@ -106,7 +97,6 @@ export default function HomeScreen() {
                 onConfirm={(date) => {
                   setOpenStartDate(false);
                   setStartDate(date);
-                  console.log(startdate);
                 }}
                 onCancel={() => {
                   setOpenStartDate(false);
@@ -121,7 +111,6 @@ export default function HomeScreen() {
                 onConfirm={(date) => {
                   setOpenEndDate(false);
                   setEndDate(date);
-                  console.log(endDate);
                 }}
                 onCancel={() => {
                   setOpenEndDate(false);
