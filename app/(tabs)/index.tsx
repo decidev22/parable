@@ -28,8 +28,6 @@ export default function HomeScreen() {
       isNegative = true;
     }
 
-    console.log("Time timeLeft in ms", timeLeft);
-
     // Reverse order for calculation
     let timeInYear = timeLeft / 1000 / 60 / 60 / 24 / 30.4167 / 12;
     let numberOfWholeYear = 0;
@@ -65,54 +63,11 @@ export default function HomeScreen() {
       timeLeft = (timeInDay - numberOfWholeDay) * 1000 * 60 * 60 * 24;
     }
 
-    console.log(
-      numberOfWholeYear,
-      numberOfWholeMonth,
-      numberOfWholeWeek,
-      numberOfWholeDay
-    );
-
-    // let numberOfWholeYear = 0;
-
-    // console.log("time in year", timeInYear);
-
-    // if (timeInYear >= 1) {
-    //   numberOfWholeYear = Math.floor(timeInYear);
-    // }
-    // timeInMonth = (timeInYear - numberOfWholeYear) / 12;
-    // console.log("Number of Years: ", numberOfWholeYear);
-
-    // let numberOfWholeMonth = 0;
-
-    // if (timeInMonth >= 1) {
-    //   numberOfWholeMonth =
-    //     Math.floor(timeInMonth) -
-    //     (numberOfWholeYear ? numberOfWholeYear * 12 : 0);
-    // }
-    // timeInWeek = (timeInMonth - numberOfWholeMonth) / 7;
-    // console.log("Number of Months: ", numberOfWholeMonth);
-
-    // let numberOfWholeWeek = 0;
-
-    // if (timeInWeek >= 1) {
-    //   numberOfWholeWeek =
-    //     Math.floor(timeInWeek) -
-    //     (numberOfWholeMonth ? numberOfWholeMonth / 30.4167 : 0);
-    //   timeInWeek = (timeInWeek - numberOfWholeWeek) / 7;
-    // }
-    // console.log("Number of Weeks: ", numberOfWholeWeek);
-
-    // let numberOfWholeDay = 0;
-
-    // if (timeInWeek >= 1) {
-    //   numberOfWholeWeek = Math.floor(timeInWeek);
-    //   timeInWeek = (timeInWeek - numberOfWholeWeek) / 7;
-    // }
-    // console.log("Number of Weeks: ", numberOfWholeWeek);
-
     return (
       <Text className="text-white">
-        {isNegative ? "Positive" : "Negative"} Testing{" "}
+        {isNegative ? "Positive" : "Negative"} {numberOfWholeYear} Years,{" "}
+        {numberOfWholeMonth} Months, {numberOfWholeWeek} Weeks, and{" "}
+        {numberOfWholeDay} Days{" "}
       </Text>
     );
   };
@@ -142,7 +97,6 @@ export default function HomeScreen() {
                 onConfirm={(date) => {
                   setOpenStartDate(false);
                   setStartDate(date);
-                  console.log(startdate);
                 }}
                 onCancel={() => {
                   setOpenStartDate(false);
@@ -157,7 +111,6 @@ export default function HomeScreen() {
                 onConfirm={(date) => {
                   setOpenEndDate(false);
                   setEndDate(date);
-                  console.log(endDate);
                 }}
                 onCancel={() => {
                   setOpenEndDate(false);
